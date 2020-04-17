@@ -13,6 +13,8 @@ import RemoveArtist from '../buttons/RemoveArtist'
 import DisplayCard from '../cards/DisplayCard'
 import UpdateArtist from '../forms/UpdateArtist'
 
+import { GET_INSTRUMENTS } from "../../queries";
+
 const useStyles = makeStyles({
   label: {
     textDecoration: 'none'

@@ -16,8 +16,6 @@ const ArtistDetails = () => {
   let history = useHistory();
   const { id, firstName, lastName } = history.location.state;
 
-  const { loading, error, data } = useQuery(GET_INSTRUMENTS);
-
   return (
     <div>
       <Container>

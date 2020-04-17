@@ -95,20 +95,22 @@ const instruments = [
 ]
 
 const typeDefs = gql`
+type Instrument {
+  id: String!
+  type: String!
+}
+
   type Artist {
     id: String!
     firstName: String!
     lastName: String!
-  }
-
-  type Instrument {
-    id: String!
-    type: String!
+    instruments:[Instrument]
   }
 
   type Query {
     artists: [Artist]
     instruments:[Instrument]
+    artist(id: String!): Artist
   }
 
   type Mutation {
@@ -121,7 +123,12 @@ const typeDefs = gql`
 const resolvers = {
   Query: {
     artists: () => artists,
-    instruments: ()=>{instruments}
+    instruments: ()=>{instruments},
+    artist: (root, args) => {
+      return artist.find((item) => {
+        return item.id === args.id;
+      });
+    }
   },
   Mutation: {
     addArtist: (root, args) => {
