@@ -10,6 +10,15 @@ export const GET_ARTISTS = gql`
   }
 `
 
+export const GET_INSTRUMENTS= gql`
+  {
+    instruments {
+      id
+      type
+    }
+  }
+`
+
 export const ADD_ARTIST = gql`
   mutation AddArtist($id: String!, $firstName: String!, $lastName: String!) {
     addArtist(id: $id, firstName: $firstName, lastName: $lastName) {
